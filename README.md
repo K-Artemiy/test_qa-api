@@ -29,13 +29,15 @@ REST API сервис для вопросов и ответов
 1. ___Вопросы (Questions)___: 
 - <span style='color: green;'>GET /questions/ </span>— список всех вопросов 
 - <span style='color: green;'>POST /questions/ </span>— создать новый вопрос 
-*Тело запроса:*
+
+    *Тело запроса:*
 ```json: {"text": "..."}```
 - <span style='color: green;'>GET /questions/{id} </span>— получить вопрос и все ответы на него 
 - <span style='color: green;'>DELETE /questions/{id} </span>— удалить вопрос (вместе с ответами) 
 2. ___Ответы (Answers)___: 
 - <span style='color: green;'>POST /questions/{id}/answers/ </span>— добавить ответ к вопросу 
-*Тело запроса:*
+
+    *Тело запроса:*
 ```json: {"text": "...", "user_id": "..."}```
 - <span style='color: green;'>GET /answers/{id}</span> — получить конкретный ответ 
 - <span style='color: green;'>DELETE /answers/{id}</span> — удалить ответ 
