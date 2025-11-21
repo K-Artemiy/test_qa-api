@@ -14,7 +14,7 @@ func getBaseURL() string {
 	if url := os.Getenv("API_URL"); url != "" {
 		return url
 	}
-	return "http://localhost:8080"
+	return "http://app:8080"
 }
 
 func decodeJSON[T any](t *testing.T, resp *http.Response, out *T) {

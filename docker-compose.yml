@@ -32,5 +32,26 @@ services:
     ports:
       - "8080:8080"
 
+  tests:
+    image: golang:1.25.1-alpine
+    working_dir: /app
+    volumes:
+      - .:/app 
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: qa_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    depends_on:
+      db:
+        condition: service_healthy
+      app:
+        condition: service_started
+    command: >
+      sh -c "
+      go test -v ./test/
+      "
+
 volumes:
   pgdata:
