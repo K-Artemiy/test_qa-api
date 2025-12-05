@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 
 	"test_qa-api/internal/handlers"
-	"test_qa-api/internal/repository"
+	"test_qa-api/internal/repository/pgrepo"
 	"test_qa-api/internal/services"
 )
 
@@ -17,7 +17,7 @@ type Server struct {
 func NewServer(db *gorm.DB) *Server {
 	mux := http.NewServeMux()
 
-	repo := repository.NewRepo(db)
+	repo := pgrepo.NewRepo(db)
 	svc := services.NewQAService(repo)
 	h := handlers.NewHandlers(svc)
 

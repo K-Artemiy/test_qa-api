@@ -8,10 +8,10 @@ import (
 )
 
 type QAService struct {
-	repo *repository.Repo
+	repo repository.Repo
 }
 
-func NewQAService(r *repository.Repo) *QAService {
+func NewQAService(r repository.Repo) *QAService {
 	return &QAService{repo: r}
 }
 
